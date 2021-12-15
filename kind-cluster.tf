@@ -11,17 +11,9 @@ resource "kind_cluster" "giropops-cluster" {
     node {
       role = "control-plane"
 
-#      kubeadm_config_patches = [
-#        "kind: InitConfiguration\nnodeRegistration:\n  kubeletExtraArgs:\n    node-labels: \"ingress-ready=true\"\n"
-#      ]
-#      extra_port_mappings {
-#        container_port = 80
-#        host_port      = 80
-#      }
-#      extra_port_mappings {
-#        container_port = 443
-#        host_port      = 443
-#      }
+      kubeadm_config_patches = [
+        "kind: InitConfiguration\nnodeRegistration:\n  kubeletExtraArgs:\n    node-labels: \"ingress-ready=true\"\n"
+      ]
     }
 
     node {
